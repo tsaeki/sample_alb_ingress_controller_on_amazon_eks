@@ -3,14 +3,14 @@ Setup the alb ingress controller on Amazon EKS with Fargete.
 I change the procefure https://docs.aws.amazon.com/en_pv/eks/latest/userguide/alb-ingress.html a litte.
 
 # Sample Run 
-## 1. Create Kubernetes Cluster
+## 1.Create Kubernetes Cluster
 ```
 $ eksctl create cluster --name demo-newsblog --region ap-northeast-1 --fargate
 ```
 ## 2.Setup ALB Ingress Controller 
 - Set up No.1 - No. 5 this site(https://docs.aws.amazon.com/en_pv/eks/latest/userguide/alb-ingress.html)
 
-## 3. Update alb-ingress-controller.yaml file and deploy
+## 3.Update alb-ingress-controller.yaml file and deploy
 - The alb-ingress-controller.yaml file is base on https://raw.githubusercontent.com/kubernetes-sigs/aws-alb-ingress-controller/v1.1.4/docs/examples/alb-ingress-controller.yaml
 ```
 $ vim alb-ingress-controller.yaml
@@ -34,7 +34,7 @@ $ vim alb-ingress-controller.yaml
 $ kubectl apply -f alb-ingress-controller.yaml
 ```
 
-## 4. Deploy a sample application
+## 4.Deploy a sample application
 ```
 $ kubectl apply -f sample-deployment.yaml
 $ kubectl apply -f sample-service.yaml
@@ -47,7 +47,7 @@ sample-ingress   *       ec36f496-default-sampleing-de8b-xxxxxxxx.ap-northeast-1
 
 ```
 
-## 5. Access 
+## 5.Access 
 - open `http://ec36f496-default-sampleing-de8b-xxxxxxxx.ap-northeast-1.elb.amazonaws.com`
 - You will show nginx default page.
 
