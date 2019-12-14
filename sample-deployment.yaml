@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: "sample-deployment"
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: "sample"
+    spec:
+      containers:
+      - image: nginx
+        imagePullPolicy: Always
+        name: "sample"
+        ports:
+        - containerPort: 80
